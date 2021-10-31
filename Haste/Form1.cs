@@ -29,25 +29,34 @@ namespace Haste
         }
         public void gethaste(Object sender, EventArgs e)
         {
-            //穷举
-            int k = 0;
-            //求和，当和小于目标值返回无结果
-            //k = int.Parse(armor3output.Text) * Convert.ToInt32(checkBoxArmor3.Checked) + int.Parse(armor2output.Text) * Convert.ToInt32(checkBoxArmor2.Checked) + int.Parse(armor6output.Text) * Convert.ToInt32(checkBoxArmor6.Checked) + int.Parse(armor10output.Text) * Convert.ToInt32(checkBoxArmor10.Checked) + int.Parse(armor8output.Text) * Convert.ToInt32(checkBoxArmor8.Checked) + int.Parse(armor9output.Text) * Convert.ToInt32(checkBoxArmor9.Checked) + int.Parse(trinket4output.Text) *Convert.ToInt32(checkBoxTrinket4.Checked) + int.Parse(trinket7output.Text) * Convert.ToInt32(checkBoxTrinket7.Checked) + int.Parse(trinket51output.Text) * Convert.ToInt32(checkBoxTrinket51.Checked) + int.Parse(trinket52output.Text) * Convert.ToInt32(checkBoxTrinket52.Checked) + int.Parse(weapon1output.Text) * Convert.ToInt32(checkBoxWeapon1.Checked) + int.Parse(weapon0output.Text) * Convert.ToInt32(checkBoxWeapon0.Checked);
-            string[] arr = new string[] { armor3output.Text, armor2output.Text, armor6output.Text, armor10output.Text, armor8output.Text, armor9output.Text, trinket4output.Text, trinket7output.Text, trinket51output.Text, trinket52output.Text, weapon1output.Text, weapon0output.Text };
-            List<string[]> list = new List<string[]>();
-            foreach(string s in arr)
+            List<decimal> equipValueOutput = new List<decimal>();
+            string[] equipValueInput =
+            { 
+                armor3output.Text,
+                armor2output.Text,
+                armor6output.Text,
+                armor10output.Text,
+                armor8output.Text,
+                armor9output.Text,
+                trinket4output.Text,
+                trinket7output.Text,
+                trinket51output.Text,
+                trinket52output.Text,
+                weapon1output.Text,
+                weapon0output.Text
+            };
+            foreach(string value in equipValueInput) 
             {
-                List<string[]> lst = list.GetRange(0, list.Count);
-                string[] nArr = { s };
-                list.Add(nArr);
-                foreach(string[] ss in lst)
+                string valueTrim = value.Trim();
+                if (!string.IsNullOrEmpty(valueTrim) && decimal.TryParse(valueTrim, out decimal parseResult) && parseResult != 0M)
                 {
-                    list.Add(ss.Concat(nArr).ToArray());
+                    equipValueOutput.Add(parseResult);
                 }
             }
-            List<string[]> outList = list.OrderByDescending(p => p.Length).ToList();
-            outList.ForEach(p => MessageBox.Show(string.Join(",", p)));
-               // MessageBox.Show("无结果！");
+            //equipValueOutput.ToArray
+            
+
+            MessageBox.Show(string.Join(",", equipValueOutput));
         }
         private void returnhaste(object sender, EventArgs e)
         {
