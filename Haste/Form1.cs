@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace Haste
@@ -31,7 +30,7 @@ namespace Haste
         {
             List<decimal> equipValueOutput = new List<decimal>();
             string[] equipValueInput =
-            { 
+            {
                 armor3output.Text,
                 armor2output.Text,
                 armor6output.Text,
@@ -45,7 +44,7 @@ namespace Haste
                 weapon1output.Text,
                 weapon0output.Text
             };
-            foreach(string value in equipValueInput) 
+            foreach (string value in equipValueInput)
             {
                 string valueTrim = value.Trim();
                 if (!string.IsNullOrEmpty(valueTrim) && decimal.TryParse(valueTrim, out decimal parseResult) && parseResult != 0M)
@@ -54,7 +53,7 @@ namespace Haste
                 }
             }
             //equipValueOutput.ToArray
-            
+            //测一下推送
 
             MessageBox.Show(string.Join(",", equipValueOutput));
         }
