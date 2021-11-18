@@ -6,18 +6,19 @@ namespace Haste
 {
     public partial class Form1 : Form
     {
-        private readonly Dictionary<string, double> StrengthMapping = new Dictionary<string, double>()
+        //精炼等级
+        private readonly Dictionary<string, decimal> StrengthMapping = new Dictionary<string, decimal>()
         {
-            {"",0 },
-            {"无", 0 },
-            {"1级",0.005 },
-            {"2级",0.013 },
-            {"3级",0.024 },
-            {"4级",0.038 },
-            {"5级",0.055 },
-            {"6级",0.075 },
-            {"7级",0.098 },
-            {"8级",0.124 }
+            {"",0M },
+            {"无", 0M },
+            {"1级",0.005M },
+            {"2级",0.013M },
+            {"3级",0.024M },
+            {"4级",0.038M },
+            {"5级",0.055M },
+            {"6级",0.075M },
+            {"7级",0.098M },
+            {"8级",0.124M }
         };
 
         public Form1()
@@ -28,6 +29,7 @@ namespace Haste
         }
         public void gethaste(Object sender, EventArgs e)
         {
+            //创建所需计算的list，预先排除非勾选项
             List<decimal> equipValueOutput = new List<decimal>();
             string[] equipValueInput =
             {
@@ -64,172 +66,271 @@ namespace Haste
         private void number(object sender, KeyPressEventArgs e)
         //限制输入数字和退格，属性里限制输入法，IME为disable
         {
-            if (!(Char.IsNumber(e.KeyChar)) && e.KeyChar != (char)8)
+            if (!Char.IsNumber(e.KeyChar) && e.KeyChar != (char)8)
             {
                 e.Handled = true;
             }
         }
         //帽子0.9 上衣裤子1 腰带护腕鞋子0.7 首饰0.5 暗器0.6
-        private void armor3_TextChanged(object sender, EventArgs e)
         //checkbox,click;textbox,textchanged；combo,textchanged
+        private void armor3_TextChanged(object sender, EventArgs e)
         {
-            float x;
-            if (armor3.Text == "" || !checkBoxArmor3.Checked)
-                x = 0;
-            else
+            decimal x;
+            try
             {
-                x = (int)(float.Parse(armor3.Text) * 0.35036 * 0.9 + 0.5);
-                //品质等级乘品质等级转加速系数乘部位系数
-                x = x + (int)(x * StrengthMapping[comboarmor3.Text] + 0.5);
+                if (armor3.Text == "" || !checkBoxArmor3.Checked)
+                    x = 0;
+                else
+                {
+                    x = (int)(decimal.Parse(armor3.Text) * 0.35036M * 0.9M + 0.5M);
+                    //品质等级乘品质等级转加速系数乘部位系数
+                    x = x + (int)(x * StrengthMapping[comboarmor3.Text] + 0.5M);
+                }
+            }
+            catch
+            {
+                x = 0;
             }
             armor3output.Text = x.ToString();
         }
         private void armor2_TextChanged(object sender, EventArgs e)
         {
-            float x;
-            if (armor2.Text == "" || !checkBoxArmor2.Checked)
-                x = 0;
-            else
+            decimal x;
+            try
             {
-                x = (int)(float.Parse(armor2.Text) * 0.35036 * 1 + 0.5);
-                //品质等级乘品质等级转加速系数乘部位系数
-                x = x + (int)(x * StrengthMapping[comboarmor2.Text] + 0.5);
+                if (armor2.Text == "" || !checkBoxArmor2.Checked)
+                    x = 0;
+                else
+                {
+                    x = (int)(decimal.Parse(armor2.Text) * 0.35036M * 1M + 0.5M);
+                    //品质等级乘品质等级转加速系数乘部位系数
+                    x = x + (int)(x * StrengthMapping[comboarmor2.Text] + 0.5M);
+                }
+            }
+            catch
+            {
+                x = 0;
             }
             armor2output.Text = x.ToString();
         }
         private void aromr6_TextChanged(object sender, EventArgs e)
         {
-            float x;
-            if (armor6.Text == "" || !checkBoxArmor6.Checked)
-                x = 0;
-            else
+            decimal x;
+            try
             {
-                x = (int)(float.Parse(armor6.Text) * 0.35036 * 0.7 + 0.5);
-                //品质等级乘品质等级转加速系数乘部位系数
-                x = x + (int)(x * StrengthMapping[comboarmor6.Text] + 0.5);
+                if (armor6.Text == "" || !checkBoxArmor6.Checked)
+                    x = 0;
+                else
+                {
+                    x = (int)(decimal.Parse(armor6.Text) * 0.35036M * 0.7M + 0.5M);
+                    //品质等级乘品质等级转加速系数乘部位系数
+                    x = x + (int)(x * StrengthMapping[comboarmor6.Text] + 0.5M);
+                }
+            }
+            catch
+            {
+                x = 0;
             }
             armor6output.Text = x.ToString();
         }
         private void armor10_TextChanged(object sender, EventArgs e)
         {
-            float x;
-            if (armor10.Text == "" || !checkBoxArmor10.Checked)
-                x = 0;
-            else
+            decimal x;
+            try
             {
-                x = (int)(float.Parse(armor10.Text) * 0.35036 * 0.7 + 0.5);
-                //品质等级乘品质等级转加速系数乘部位系数
-                x = x + (int)(x * StrengthMapping[comboarmor10.Text] + 0.5);
+                if (armor10.Text == "" || !checkBoxArmor10.Checked)
+                    x = 0;
+                else
+                {
+                    x = (int)(decimal.Parse(armor10.Text) * 0.35036m * 0.7m + 0.5m);
+                    //品质等级乘品质等级转加速系数乘部位系数
+                    x = x + (int)(x * StrengthMapping[comboarmor10.Text] + 0.5m);
+                }
+            }
+            catch
+            {
+                x = 0;
             }
             armor10output.Text = x.ToString();
         }
         private void armor8_TextChanged(object sender, EventArgs e)
         {
-            float x;
-            if (armor8.Text == "" || !checkBoxArmor8.Checked)
-                x = 0;
-            else
+            decimal x;
+            try
             {
-                x = (int)(float.Parse(armor8.Text) * 0.35036 * 1 + 0.5);
-                //品质等级乘品质等级转加速系数乘部位系数
-                x = x + (int)(x * StrengthMapping[comboarmor8.Text] + 0.5);
+                if (armor8.Text == "" || !checkBoxArmor8.Checked)
+                    x = 0;
+                else
+                {
+                    x = (int)(decimal.Parse(armor8.Text) * 0.35036m * 1m + 0.5m);
+                    //品质等级乘品质等级转加速系数乘部位系数
+                    x = x + (int)(x * StrengthMapping[comboarmor8.Text] + 0.5m);
+                }
+            }
+            catch
+            {
+                x = 0;
             }
             armor8output.Text = x.ToString();
         }
         private void armor9_TextChanged(object sender, EventArgs e)
         {
-            float x;
-            if (armor9.Text == "" || !checkBoxArmor9.Checked)
-                x = 0;
-            else
+            decimal x;
+            try
             {
-                x = (int)(float.Parse(armor9.Text) * 0.35036 * 0.7 + 0.5);
-                //品质等级乘品质等级转加速系数乘部位系数
-                x = x + (int)(x * StrengthMapping[comboarmor9.Text] + 0.5);
+                if (armor9.Text == "" || !checkBoxArmor9.Checked)
+                    x = 0;
+                else
+                {
+                    x = (int)(decimal.Parse(armor9.Text) * 0.35036m * 0.7m + 0.5m);
+                    //品质等级乘品质等级转加速系数乘部位系数
+                    x = x + (int)(x * StrengthMapping[comboarmor9.Text] + 0.5m);
+                }
+            }
+            catch
+            {
+                x = 0;
             }
             armor9output.Text = x.ToString();
         }
         private void trinket4_TextChanged(object sender, EventArgs e)
         {
-            float x;
-            if (trinket4.Text == "" || !checkBoxTrinket4.Checked)
-                x = 0;
-            else
+            decimal x;
+            try
             {
-                x = (int)(float.Parse(trinket4.Text) * 0.35036 * 0.5 + 0.5);
-                //品质等级乘品质等级转加速系数乘部位系数
-                x = x + (int)(x * StrengthMapping[combotrinket4.Text] + 0.5);
+                if (trinket4.Text == "" || !checkBoxTrinket4.Checked)
+                    x = 0;
+                else
+                {
+                    x = (int)(decimal.Parse(trinket4.Text) * 0.35036m * 0.5m + 0.5m);
+                    //品质等级乘品质等级转加速系数乘部位系数
+                    x = x + (int)(x * StrengthMapping[combotrinket4.Text] + 0.5m);
+                }
+            }
+            catch
+            {
+                x = 0;
             }
             trinket4output.Text = x.ToString();
         }
         private void trinket7_TextChanged(object sender, EventArgs e)
         {
-            float x;
-            if (trinket7.Text == "" || !checkBoxTrinket7.Checked)
-                x = 0;
-            else
+            decimal x;
+            try
             {
-                x = (int)(float.Parse(trinket7.Text) * 0.35036 * 0.5 + 0.5);
-                //品质等级乘品质等级转加速系数乘部位系数
-                x = x + (int)(x * StrengthMapping[combotrinket7.Text] + 0.5);
+                if (trinket7.Text == "" || !checkBoxTrinket7.Checked)
+                    x = 0;
+                else
+                {
+                    x = (int)(decimal.Parse(trinket7.Text) * 0.35036m * 0.5m + 0.5m);
+                    //品质等级乘品质等级转加速系数乘部位系数
+                    x = x + (int)(x * StrengthMapping[combotrinket7.Text] + 0.5m);
+                }
+            }
+            catch
+            {
+                x = 0;
             }
             trinket7output.Text = x.ToString();
         }
         private void trinket51_TextChanged(object sender, EventArgs e)
         {
-            float x;
-            if (trinket51.Text == "" || !checkBoxTrinket51.Checked)
-                x = 0;
-            else
+            decimal x;
+            try
             {
-                x = (int)(float.Parse(trinket51.Text) * 0.35036 * 0.5 + 0.5);
-                //品质等级乘品质等级转加速系数乘部位系数
-                x = x + (int)(x * StrengthMapping[combotrinket51.Text] + 0.5);
+                if (trinket51.Text == "" || !checkBoxTrinket51.Checked)
+                    x = 0;
+                else
+                {
+                    x = (int)(decimal.Parse(trinket51.Text) * 0.35036m * 0.5m + 0.5m);
+                    //品质等级乘品质等级转加速系数乘部位系数
+                    x = x + (int)(x * StrengthMapping[combotrinket51.Text] + 0.5m);
+                }
+            }
+            catch
+            {
+                x = 0;
             }
             trinket51output.Text = x.ToString();
         }
         private void trinket52_TextChanged(object sender, EventArgs e)
         {
-            float x;
-            if (trinket52.Text == "" || !checkBoxTrinket52.Checked)
-                x = 0;
-            else
+            decimal x;
+            try
             {
-                x = (int)(float.Parse(trinket52.Text) * 0.35036 * 0.5 + 0.5);
-                //品质等级乘品质等级转加速系数乘部位系数
-                x = x + (int)(x * StrengthMapping[combotrinket52.Text] + 0.5);
+                if (trinket52.Text == "" || !checkBoxTrinket52.Checked)
+                    x = 0;
+                else
+                {
+                    x = (int)(decimal.Parse(trinket52.Text) * 0.35036m * 0.5m + 0.5m);
+                    //品质等级乘品质等级转加速系数乘部位系数
+                    x = x + (int)(x * StrengthMapping[combotrinket52.Text] + 0.5m);
+                }
+            }
+            catch
+            {
+                x = 0;
             }
             trinket52output.Text = x.ToString();
         }
         private void weapon1_TextChanged(object sender, EventArgs e)
         {
-            float x;
-            if (weapon1.Text == "" || !checkBoxWeapon1.Checked)
-                x = 0;
-            else
+            decimal x;
+            try
             {
-                x = (int)(float.Parse(weapon1.Text) * 0.35036 * 0.6 + 0.5);
-                //品质等级乘品质等级转加速系数乘部位系数
-                x = x + (int)(x * StrengthMapping[comboweapon1.Text] + 0.5);
+                if (weapon1.Text == "" || !checkBoxWeapon1.Checked)
+                    x = 0;
+                else
+                {
+                    x = (int)(decimal.Parse(weapon1.Text) * 0.35036m * 0.6m + 0.5m);
+                    //品质等级乘品质等级转加速系数乘部位系数
+                    x = x + (int)(x * StrengthMapping[comboweapon1.Text] + 0.5m);
+                }
+            }
+            catch
+            {
+                x = 0;
             }
             weapon1output.Text = x.ToString();
         }
         private void weapon0_TextChanged(object sender, EventArgs e)
         {
-            float x;
-            if (weapon0.Text == "" || !checkBoxWeapon0.Checked)
-                x = 0;
-            else
+            decimal x;
+            try
             {
-                x = (int)(float.Parse(weapon0.Text) * 0.35036 * 1.2 + 0.5);
-                //品质等级乘品质等级转加速系数乘部位系数
-                x = x + (int)(x * StrengthMapping[comboweapon0.Text] + 0.5);
+                if (weapon0.Text == "" || !checkBoxWeapon0.Checked)
+                    x = 0;
+                else
+                {
+                    x = (int)(decimal.Parse(weapon0.Text) * 0.35036m * 1.2m + 0.5m);
+                    //品质等级乘品质等级转加速系数乘部位系数
+                    x = x + (int)(x * StrengthMapping[comboweapon0.Text] + 0.5m);
+                }
+            }
+            catch
+            {
+                x = 0;
             }
             weapon0output.Text = x.ToString();
         }
         private void button1_Click(object sender, EventArgs e)
         {
+            int sz = alltext.TextLength;
+            int k = 0;
+            for (int i = 0; i < sz; i++)
+            {
+                if (char.IsNumber((char)i))
+                {
+                    k++;
+                    MessageBox.Show(k.ToString());
+                }
+                else
+                    continue;
+            }
+
             if (alltext.Text == "")
+
+            //一键设置装分，判断数据类型和是否为空
             {
                 armor3.Text = "0";
                 armor2.Text = "0";
@@ -274,11 +375,6 @@ namespace Haste
             combotrinket52.SelectedItem = allcombo.SelectedItem;
             comboweapon1.SelectedItem = allcombo.SelectedItem;
             comboweapon0.SelectedItem = allcombo.SelectedItem;
-        }
-
-        private void armor3output_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

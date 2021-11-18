@@ -333,7 +333,7 @@ namespace Haste
             this.comboweapon1.Name = "comboweapon1";
             this.comboweapon1.Size = new System.Drawing.Size(102, 20);
             this.comboweapon1.TabIndex = 25;
-            this.comboweapon1.Click += new System.EventHandler(this.weapon1_TextChanged);
+            this.comboweapon1.TextChanged += new System.EventHandler(this.weapon1_TextChanged);
             // 
             // armor3
             // 
@@ -960,7 +960,6 @@ namespace Haste
             this.armor3output.Size = new System.Drawing.Size(90, 21);
             this.armor3output.TabIndex = 95;
             this.armor3output.TabStop = false;
-            this.armor3output.TextChanged += new System.EventHandler(this.armor3output_TextChanged);
             this.armor3output.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.number);
             // 
             // alltext
