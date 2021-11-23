@@ -6,7 +6,7 @@ namespace Haste
 {
     public partial class Form1 : Form
     {
-        //精炼等级
+        //精炼等级及系数
         private readonly Dictionary<string, decimal> StrengthMapping = new Dictionary<string, decimal>()
         {
             {"",0M },
@@ -31,6 +31,7 @@ namespace Haste
         {
             //创建所需计算的list，预先排除非勾选项
             List<decimal> equipValueOutput = new List<decimal>();
+            //input导入各部位加速数值
             string[] equipValueInput =
             {
                 armor3output.Text,
@@ -46,16 +47,18 @@ namespace Haste
                 weapon1output.Text,
                 weapon0output.Text
             };
+            //判断数据类型
             foreach (string value in equipValueInput)
             {
                 string valueTrim = value.Trim();
                 if (!string.IsNullOrEmpty(valueTrim) && decimal.TryParse(valueTrim, out decimal parseResult) && parseResult != 0M)
                 {
                     equipValueOutput.Add(parseResult);
+                    //输出并显示需要规划求解（穷举）的部位
                 }
             }
-            //equipValueOutput.ToArray
-            //测一下推送
+            //equipValueOutput.ToArray ←不知道干啥的 先不删
+
 
             MessageBox.Show(string.Join(",", equipValueOutput));
         }
@@ -315,21 +318,20 @@ namespace Haste
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            int sz = alltext.TextLength;
-            int k = 0;
-            for (int i = 0; i < sz; i++)
-            {
-                if (char.IsNumber((char)i))
-                {
-                    k++;
-                    MessageBox.Show(k.ToString());
-                }
-                else
-                    continue;
-            }
-
+            //int sz = alltext.TextLength;
+            //int k = 0;
+            //for (int i = 0; i < sz; i++)
+            //{
+            //    if (char.IsNumber((char)i))
+            //    {
+            //        k++;
+            //        MessageBox.Show(k.ToString());
+            //    }
+            //    else
+            //        continue;
+            //}
+            //判断是否为数字 写错了 暂时注释掉
             if (alltext.Text == "")
-
             //一键设置装分，判断数据类型和是否为空
             {
                 armor3.Text = "0";
