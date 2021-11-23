@@ -54,13 +54,30 @@ namespace Haste
                 if (!string.IsNullOrEmpty(valueTrim) && decimal.TryParse(valueTrim, out decimal parseResult) && parseResult != 0M)
                 {
                     equipValueOutput.Add(parseResult);
-                    //输出并显示需要规划求解（穷举）的部位
+                    //输出需要规划求解（穷举）的部位
                 }
             }
-            //equipValueOutput.ToArray ←不知道干啥的 先不删
-
-
+            //显示需要规划求解的部位
             MessageBox.Show(string.Join(",", equipValueOutput));
+            //穷举计算 根据equipValueOutput这个list来计算
+            decimal x = equipValueOutput.Count;
+            //x表示有几个部位参与计算
+            decimal resultvalue;
+            List<decimal> result = new List<decimal>();
+            for (decimal i = 0; i < x; i++)
+                //i表示取几个装备
+            {
+                for(decimal j = 1; j < x-i+1; j++)
+                    //j表示从output之后新的list的几号部位开始计算
+                {
+                    for (decimal m = j; m > i; m--)
+                    //m表示
+                    {
+                        result.Add(m);
+                    }
+                }
+            }
+
         }
         private void returnhaste(object sender, EventArgs e)
         {
