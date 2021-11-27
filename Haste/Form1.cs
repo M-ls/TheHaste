@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Haste
@@ -57,31 +58,30 @@ namespace Haste
                     //输出需要规划求解（穷举）的部位
                 }
             }
-            //显示需要规划求解的部位
+            //显示需要规划求解的部位 测试用 这行记得删
             MessageBox.Show(string.Join(",", equipValueOutput));
             //穷举计算 根据equipValueOutput这个list来计算
-            decimal x = equipValueOutput.Count;
-            //x表示有几个部位参与计算
-            decimal resultvalue;
-            List<decimal> result = new List<decimal>();
-            for (decimal i = 0; i < x; i++)
-                //i表示取几个装备
+            List<decimal[]> list = new List<decimal[]>();
+            foreach (decimal s in equipValueOutput)
             {
-                for(decimal j = 1; j < x-i+1; j++)
-                    //j表示从output之后新的list的几号部位开始计算
+                List<decimal[]> lst = list.GetRange(0, list.Count);
+                decimal[] nArr = { s };
+                list.Add(nArr);
+                foreach (decimal[] ss in lst)
                 {
-                    for (decimal m = j; m > i; m--)
-                    //m表示
-                    {
-                        result.Add(m);
-                    }
+                    list.Add(ss.Concat(nArr).ToArray());
                 }
+                
             }
-
-        }
-        private void returnhaste(object sender, EventArgs e)
-        {
-
+            List<decimal> sums = list.Select(x => x.Sum()).ToList();
+            List<decimal> i = new List<decimal>();
+            foreach (decimal sum in sums)
+            { 
+                if(sum >= decimal.Parse(tohaste.Text) && sum <= decimal.Parse(tohaste.Text)+decimal.Parse(addhaste.Text))
+                    i.Add(sum);
+                //i为满足条件的list 但此段无法返回对应装备 需重构 存档
+            }
+            //12位 每一位表示一个装备栏01 11 11 10 11 10
         }
         private void number(object sender, KeyPressEventArgs e)
         //限制输入数字和退格，属性里限制输入法，IME为disable
