@@ -29,6 +29,7 @@ namespace Haste
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.checkBoxArmor3 = new System.Windows.Forms.CheckBox();
             this.comboarmor3 = new System.Windows.Forms.ComboBox();
             this.comboarmor2 = new System.Windows.Forms.ComboBox();
@@ -81,7 +82,6 @@ namespace Haste
             this.tohaste = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.addhaste = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.comboBox13 = new System.Windows.Forms.ComboBox();
@@ -105,6 +105,12 @@ namespace Haste
             this.button1 = new System.Windows.Forms.Button();
             this.allcombo = new System.Windows.Forms.ComboBox();
             this.button2 = new System.Windows.Forms.Button();
+            this.enchant1 = new System.Windows.Forms.CheckBox();
+            this.enchant2 = new System.Windows.Forms.CheckBox();
+            this.enchant3 = new System.Windows.Forms.CheckBox();
+            this.enchantTextbox1 = new System.Windows.Forms.TextBox();
+            this.enchantTextbox2 = new System.Windows.Forms.TextBox();
+            this.enchantTextbox3 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // checkBoxArmor3
@@ -113,7 +119,7 @@ namespace Haste
             this.checkBoxArmor3.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.checkBoxArmor3.Location = new System.Drawing.Point(29, 39);
             this.checkBoxArmor3.Name = "checkBoxArmor3";
-            this.checkBoxArmor3.Size = new System.Drawing.Size(59, 20);
+            this.checkBoxArmor3.Size = new System.Drawing.Size(58, 20);
             this.checkBoxArmor3.TabIndex = 2;
             this.checkBoxArmor3.Text = "帽子";
             this.checkBoxArmor3.UseVisualStyleBackColor = true;
@@ -341,6 +347,7 @@ namespace Haste
             this.armor3.Location = new System.Drawing.Point(94, 39);
             this.armor3.MaxLength = 8;
             this.armor3.Name = "armor3";
+            this.armor3.ShortcutsEnabled = false;
             this.armor3.Size = new System.Drawing.Size(61, 21);
             this.armor3.TabIndex = 39;
             this.armor3.TabStop = false;
@@ -353,7 +360,7 @@ namespace Haste
             this.checkBoxWeapon0.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.checkBoxWeapon0.Location = new System.Drawing.Point(29, 534);
             this.checkBoxWeapon0.Name = "checkBoxWeapon0";
-            this.checkBoxWeapon0.Size = new System.Drawing.Size(59, 20);
+            this.checkBoxWeapon0.Size = new System.Drawing.Size(58, 20);
             this.checkBoxWeapon0.TabIndex = 42;
             this.checkBoxWeapon0.Text = "武器";
             this.checkBoxWeapon0.UseVisualStyleBackColor = true;
@@ -367,7 +374,7 @@ namespace Haste
             this.checkBoxWeapon1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.checkBoxWeapon1.Location = new System.Drawing.Point(29, 489);
             this.checkBoxWeapon1.Name = "checkBoxWeapon1";
-            this.checkBoxWeapon1.Size = new System.Drawing.Size(59, 20);
+            this.checkBoxWeapon1.Size = new System.Drawing.Size(58, 20);
             this.checkBoxWeapon1.TabIndex = 43;
             this.checkBoxWeapon1.Text = "暗器";
             this.checkBoxWeapon1.UseVisualStyleBackColor = true;
@@ -381,7 +388,7 @@ namespace Haste
             this.checkBoxTrinket52.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.checkBoxTrinket52.Location = new System.Drawing.Point(29, 444);
             this.checkBoxTrinket52.Name = "checkBoxTrinket52";
-            this.checkBoxTrinket52.Size = new System.Drawing.Size(59, 20);
+            this.checkBoxTrinket52.Size = new System.Drawing.Size(58, 20);
             this.checkBoxTrinket52.TabIndex = 44;
             this.checkBoxTrinket52.Text = "戒指";
             this.checkBoxTrinket52.UseVisualStyleBackColor = true;
@@ -395,7 +402,7 @@ namespace Haste
             this.checkBoxTrinket51.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.checkBoxTrinket51.Location = new System.Drawing.Point(29, 399);
             this.checkBoxTrinket51.Name = "checkBoxTrinket51";
-            this.checkBoxTrinket51.Size = new System.Drawing.Size(59, 20);
+            this.checkBoxTrinket51.Size = new System.Drawing.Size(58, 20);
             this.checkBoxTrinket51.TabIndex = 45;
             this.checkBoxTrinket51.Text = "戒指";
             this.checkBoxTrinket51.UseVisualStyleBackColor = true;
@@ -409,7 +416,7 @@ namespace Haste
             this.checkBoxTrinket7.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.checkBoxTrinket7.Location = new System.Drawing.Point(29, 354);
             this.checkBoxTrinket7.Name = "checkBoxTrinket7";
-            this.checkBoxTrinket7.Size = new System.Drawing.Size(59, 20);
+            this.checkBoxTrinket7.Size = new System.Drawing.Size(58, 20);
             this.checkBoxTrinket7.TabIndex = 46;
             this.checkBoxTrinket7.Text = "腰坠";
             this.checkBoxTrinket7.UseVisualStyleBackColor = true;
@@ -423,7 +430,7 @@ namespace Haste
             this.checkBoxTrinket4.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.checkBoxTrinket4.Location = new System.Drawing.Point(29, 309);
             this.checkBoxTrinket4.Name = "checkBoxTrinket4";
-            this.checkBoxTrinket4.Size = new System.Drawing.Size(59, 20);
+            this.checkBoxTrinket4.Size = new System.Drawing.Size(58, 20);
             this.checkBoxTrinket4.TabIndex = 47;
             this.checkBoxTrinket4.Text = "项链";
             this.checkBoxTrinket4.UseVisualStyleBackColor = true;
@@ -435,7 +442,7 @@ namespace Haste
             this.checkBoxArmor9.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.checkBoxArmor9.Location = new System.Drawing.Point(29, 264);
             this.checkBoxArmor9.Name = "checkBoxArmor9";
-            this.checkBoxArmor9.Size = new System.Drawing.Size(59, 20);
+            this.checkBoxArmor9.Size = new System.Drawing.Size(58, 20);
             this.checkBoxArmor9.TabIndex = 48;
             this.checkBoxArmor9.Text = "鞋子";
             this.checkBoxArmor9.UseVisualStyleBackColor = true;
@@ -447,7 +454,7 @@ namespace Haste
             this.checkBoxArmor8.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.checkBoxArmor8.Location = new System.Drawing.Point(29, 219);
             this.checkBoxArmor8.Name = "checkBoxArmor8";
-            this.checkBoxArmor8.Size = new System.Drawing.Size(59, 20);
+            this.checkBoxArmor8.Size = new System.Drawing.Size(58, 20);
             this.checkBoxArmor8.TabIndex = 49;
             this.checkBoxArmor8.Text = "下装";
             this.checkBoxArmor8.UseVisualStyleBackColor = true;
@@ -459,7 +466,7 @@ namespace Haste
             this.checkBoxArmor10.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.checkBoxArmor10.Location = new System.Drawing.Point(29, 174);
             this.checkBoxArmor10.Name = "checkBoxArmor10";
-            this.checkBoxArmor10.Size = new System.Drawing.Size(59, 20);
+            this.checkBoxArmor10.Size = new System.Drawing.Size(58, 20);
             this.checkBoxArmor10.TabIndex = 50;
             this.checkBoxArmor10.Text = "护腕";
             this.checkBoxArmor10.UseVisualStyleBackColor = true;
@@ -471,7 +478,7 @@ namespace Haste
             this.checkBoxArmor6.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.checkBoxArmor6.Location = new System.Drawing.Point(29, 129);
             this.checkBoxArmor6.Name = "checkBoxArmor6";
-            this.checkBoxArmor6.Size = new System.Drawing.Size(59, 20);
+            this.checkBoxArmor6.Size = new System.Drawing.Size(58, 20);
             this.checkBoxArmor6.TabIndex = 51;
             this.checkBoxArmor6.Text = "腰带";
             this.checkBoxArmor6.UseVisualStyleBackColor = true;
@@ -483,7 +490,7 @@ namespace Haste
             this.checkBoxArmor2.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.checkBoxArmor2.Location = new System.Drawing.Point(29, 84);
             this.checkBoxArmor2.Name = "checkBoxArmor2";
-            this.checkBoxArmor2.Size = new System.Drawing.Size(59, 20);
+            this.checkBoxArmor2.Size = new System.Drawing.Size(58, 20);
             this.checkBoxArmor2.TabIndex = 52;
             this.checkBoxArmor2.Text = "衣服";
             this.checkBoxArmor2.UseVisualStyleBackColor = true;
@@ -495,6 +502,7 @@ namespace Haste
             this.armor6.Location = new System.Drawing.Point(94, 129);
             this.armor6.MaxLength = 8;
             this.armor6.Name = "armor6";
+            this.armor6.ShortcutsEnabled = false;
             this.armor6.Size = new System.Drawing.Size(61, 21);
             this.armor6.TabIndex = 53;
             this.armor6.TabStop = false;
@@ -507,6 +515,7 @@ namespace Haste
             this.armor8.Location = new System.Drawing.Point(94, 219);
             this.armor8.MaxLength = 8;
             this.armor8.Name = "armor8";
+            this.armor8.ShortcutsEnabled = false;
             this.armor8.Size = new System.Drawing.Size(61, 21);
             this.armor8.TabIndex = 54;
             this.armor8.TabStop = false;
@@ -519,6 +528,7 @@ namespace Haste
             this.armor10.Location = new System.Drawing.Point(95, 174);
             this.armor10.MaxLength = 8;
             this.armor10.Name = "armor10";
+            this.armor10.ShortcutsEnabled = false;
             this.armor10.Size = new System.Drawing.Size(61, 21);
             this.armor10.TabIndex = 55;
             this.armor10.TabStop = false;
@@ -531,6 +541,7 @@ namespace Haste
             this.trinket4.Location = new System.Drawing.Point(94, 309);
             this.trinket4.MaxLength = 8;
             this.trinket4.Name = "trinket4";
+            this.trinket4.ShortcutsEnabled = false;
             this.trinket4.Size = new System.Drawing.Size(61, 21);
             this.trinket4.TabIndex = 56;
             this.trinket4.TabStop = false;
@@ -543,6 +554,7 @@ namespace Haste
             this.armor9.Location = new System.Drawing.Point(94, 264);
             this.armor9.MaxLength = 8;
             this.armor9.Name = "armor9";
+            this.armor9.ShortcutsEnabled = false;
             this.armor9.Size = new System.Drawing.Size(61, 21);
             this.armor9.TabIndex = 57;
             this.armor9.TabStop = false;
@@ -555,6 +567,7 @@ namespace Haste
             this.trinket7.Location = new System.Drawing.Point(94, 354);
             this.trinket7.MaxLength = 8;
             this.trinket7.Name = "trinket7";
+            this.trinket7.ShortcutsEnabled = false;
             this.trinket7.Size = new System.Drawing.Size(61, 21);
             this.trinket7.TabIndex = 58;
             this.trinket7.TabStop = false;
@@ -567,6 +580,7 @@ namespace Haste
             this.trinket51.Location = new System.Drawing.Point(94, 399);
             this.trinket51.MaxLength = 8;
             this.trinket51.Name = "trinket51";
+            this.trinket51.ShortcutsEnabled = false;
             this.trinket51.Size = new System.Drawing.Size(61, 21);
             this.trinket51.TabIndex = 59;
             this.trinket51.TabStop = false;
@@ -579,6 +593,7 @@ namespace Haste
             this.trinket52.Location = new System.Drawing.Point(94, 444);
             this.trinket52.MaxLength = 8;
             this.trinket52.Name = "trinket52";
+            this.trinket52.ShortcutsEnabled = false;
             this.trinket52.Size = new System.Drawing.Size(61, 21);
             this.trinket52.TabIndex = 60;
             this.trinket52.TabStop = false;
@@ -591,6 +606,7 @@ namespace Haste
             this.weapon0.Location = new System.Drawing.Point(94, 534);
             this.weapon0.MaxLength = 8;
             this.weapon0.Name = "weapon0";
+            this.weapon0.ShortcutsEnabled = false;
             this.weapon0.Size = new System.Drawing.Size(61, 21);
             this.weapon0.TabIndex = 61;
             this.weapon0.TabStop = false;
@@ -603,6 +619,7 @@ namespace Haste
             this.weapon1.Location = new System.Drawing.Point(94, 489);
             this.weapon1.MaxLength = 8;
             this.weapon1.Name = "weapon1";
+            this.weapon1.ShortcutsEnabled = false;
             this.weapon1.Size = new System.Drawing.Size(61, 21);
             this.weapon1.TabIndex = 62;
             this.weapon1.TabStop = false;
@@ -615,6 +632,7 @@ namespace Haste
             this.armor2.Location = new System.Drawing.Point(94, 84);
             this.armor2.MaxLength = 8;
             this.armor2.Name = "armor2";
+            this.armor2.ShortcutsEnabled = false;
             this.armor2.Size = new System.Drawing.Size(61, 21);
             this.armor2.TabIndex = 63;
             this.armor2.TabStop = false;
@@ -627,7 +645,7 @@ namespace Haste
             this.label1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label1.Location = new System.Drawing.Point(164, 40);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(24, 16);
+            this.label1.Size = new System.Drawing.Size(23, 16);
             this.label1.TabIndex = 65;
             this.label1.Text = "品";
             // 
@@ -637,7 +655,7 @@ namespace Haste
             this.label8.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label8.Location = new System.Drawing.Point(164, 533);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(24, 16);
+            this.label8.Size = new System.Drawing.Size(23, 16);
             this.label8.TabIndex = 72;
             this.label8.Text = "品";
             // 
@@ -647,7 +665,7 @@ namespace Haste
             this.label9.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label9.Location = new System.Drawing.Point(164, 490);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(24, 16);
+            this.label9.Size = new System.Drawing.Size(23, 16);
             this.label9.TabIndex = 73;
             this.label9.Text = "品";
             // 
@@ -657,7 +675,7 @@ namespace Haste
             this.label10.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label10.Location = new System.Drawing.Point(164, 445);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(24, 16);
+            this.label10.Size = new System.Drawing.Size(23, 16);
             this.label10.TabIndex = 74;
             this.label10.Text = "品";
             // 
@@ -667,7 +685,7 @@ namespace Haste
             this.label11.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label11.Location = new System.Drawing.Point(164, 398);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(24, 16);
+            this.label11.Size = new System.Drawing.Size(23, 16);
             this.label11.TabIndex = 75;
             this.label11.Text = "品";
             // 
@@ -677,7 +695,7 @@ namespace Haste
             this.label12.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label12.Location = new System.Drawing.Point(164, 355);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(24, 16);
+            this.label12.Size = new System.Drawing.Size(23, 16);
             this.label12.TabIndex = 76;
             this.label12.Text = "品";
             // 
@@ -687,7 +705,7 @@ namespace Haste
             this.label13.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label13.Location = new System.Drawing.Point(164, 310);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(24, 16);
+            this.label13.Size = new System.Drawing.Size(23, 16);
             this.label13.TabIndex = 77;
             this.label13.Text = "品";
             // 
@@ -697,7 +715,7 @@ namespace Haste
             this.label14.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label14.Location = new System.Drawing.Point(164, 265);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(24, 16);
+            this.label14.Size = new System.Drawing.Size(23, 16);
             this.label14.TabIndex = 78;
             this.label14.Text = "品";
             // 
@@ -707,7 +725,7 @@ namespace Haste
             this.label15.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label15.Location = new System.Drawing.Point(164, 220);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(24, 16);
+            this.label15.Size = new System.Drawing.Size(23, 16);
             this.label15.TabIndex = 79;
             this.label15.Text = "品";
             // 
@@ -717,7 +735,7 @@ namespace Haste
             this.label16.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label16.Location = new System.Drawing.Point(164, 173);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(24, 16);
+            this.label16.Size = new System.Drawing.Size(23, 16);
             this.label16.TabIndex = 80;
             this.label16.Text = "品";
             // 
@@ -727,7 +745,7 @@ namespace Haste
             this.label17.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label17.Location = new System.Drawing.Point(164, 130);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(24, 16);
+            this.label17.Size = new System.Drawing.Size(23, 16);
             this.label17.TabIndex = 81;
             this.label17.Text = "品";
             // 
@@ -737,7 +755,7 @@ namespace Haste
             this.label18.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label18.Location = new System.Drawing.Point(164, 85);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(24, 16);
+            this.label18.Size = new System.Drawing.Size(23, 16);
             this.label18.TabIndex = 82;
             this.label18.Text = "品";
             // 
@@ -755,6 +773,7 @@ namespace Haste
             // 
             this.tohaste.Location = new System.Drawing.Point(569, 457);
             this.tohaste.Name = "tohaste";
+            this.tohaste.ShortcutsEnabled = false;
             this.tohaste.Size = new System.Drawing.Size(109, 21);
             this.tohaste.TabIndex = 84;
             // 
@@ -772,18 +791,10 @@ namespace Haste
             // 
             this.addhaste.Location = new System.Drawing.Point(569, 499);
             this.addhaste.Name = "addhaste";
+            this.addhaste.ShortcutsEnabled = false;
             this.addhaste.Size = new System.Drawing.Size(109, 21);
             this.addhaste.TabIndex = 86;
             this.addhaste.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.number);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(454, 39);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(29, 12);
-            this.label4.TabIndex = 87;
-            this.label4.Text = "附魔";
             // 
             // label5
             // 
@@ -791,7 +802,7 @@ namespace Haste
             this.label5.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label5.Location = new System.Drawing.Point(434, 333);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(72, 16);
+            this.label5.Size = new System.Drawing.Size(71, 16);
             this.label5.TabIndex = 88;
             this.label5.Text = "增强药品";
             // 
@@ -801,7 +812,7 @@ namespace Haste
             this.label6.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label6.Location = new System.Drawing.Point(434, 365);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(72, 16);
+            this.label6.Size = new System.Drawing.Size(71, 16);
             this.label6.TabIndex = 89;
             this.label6.Text = "增强食品";
             // 
@@ -848,7 +859,7 @@ namespace Haste
             this.label7.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label7.Location = new System.Drawing.Point(434, 397);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(72, 16);
+            this.label7.Size = new System.Drawing.Size(71, 16);
             this.label7.TabIndex = 93;
             this.label7.Text = "家园藏酒";
             // 
@@ -857,6 +868,7 @@ namespace Haste
             this.armor2output.Location = new System.Drawing.Point(318, 83);
             this.armor2output.MaxLength = 8;
             this.armor2output.Name = "armor2output";
+            this.armor2output.ShortcutsEnabled = false;
             this.armor2output.Size = new System.Drawing.Size(90, 21);
             this.armor2output.TabIndex = 106;
             this.armor2output.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.number);
@@ -866,6 +878,7 @@ namespace Haste
             this.weapon1output.Location = new System.Drawing.Point(318, 488);
             this.weapon1output.MaxLength = 8;
             this.weapon1output.Name = "weapon1output";
+            this.weapon1output.ShortcutsEnabled = false;
             this.weapon1output.Size = new System.Drawing.Size(90, 21);
             this.weapon1output.TabIndex = 105;
             this.weapon1output.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.number);
@@ -875,6 +888,7 @@ namespace Haste
             this.weapon0output.Location = new System.Drawing.Point(318, 533);
             this.weapon0output.MaxLength = 8;
             this.weapon0output.Name = "weapon0output";
+            this.weapon0output.ShortcutsEnabled = false;
             this.weapon0output.Size = new System.Drawing.Size(90, 21);
             this.weapon0output.TabIndex = 104;
             this.weapon0output.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.number);
@@ -884,6 +898,7 @@ namespace Haste
             this.trinket52output.Location = new System.Drawing.Point(318, 443);
             this.trinket52output.MaxLength = 8;
             this.trinket52output.Name = "trinket52output";
+            this.trinket52output.ShortcutsEnabled = false;
             this.trinket52output.Size = new System.Drawing.Size(90, 21);
             this.trinket52output.TabIndex = 103;
             this.trinket52output.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.number);
@@ -893,6 +908,7 @@ namespace Haste
             this.trinket51output.Location = new System.Drawing.Point(318, 398);
             this.trinket51output.MaxLength = 8;
             this.trinket51output.Name = "trinket51output";
+            this.trinket51output.ShortcutsEnabled = false;
             this.trinket51output.Size = new System.Drawing.Size(90, 21);
             this.trinket51output.TabIndex = 102;
             this.trinket51output.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.number);
@@ -902,6 +918,7 @@ namespace Haste
             this.trinket7output.Location = new System.Drawing.Point(318, 353);
             this.trinket7output.MaxLength = 8;
             this.trinket7output.Name = "trinket7output";
+            this.trinket7output.ShortcutsEnabled = false;
             this.trinket7output.Size = new System.Drawing.Size(90, 21);
             this.trinket7output.TabIndex = 101;
             this.trinket7output.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.number);
@@ -911,6 +928,7 @@ namespace Haste
             this.armor9output.Location = new System.Drawing.Point(318, 263);
             this.armor9output.MaxLength = 8;
             this.armor9output.Name = "armor9output";
+            this.armor9output.ShortcutsEnabled = false;
             this.armor9output.Size = new System.Drawing.Size(90, 21);
             this.armor9output.TabIndex = 100;
             this.armor9output.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.number);
@@ -920,6 +938,7 @@ namespace Haste
             this.trinket4output.Location = new System.Drawing.Point(318, 308);
             this.trinket4output.MaxLength = 8;
             this.trinket4output.Name = "trinket4output";
+            this.trinket4output.ShortcutsEnabled = false;
             this.trinket4output.Size = new System.Drawing.Size(90, 21);
             this.trinket4output.TabIndex = 99;
             this.trinket4output.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.number);
@@ -929,6 +948,7 @@ namespace Haste
             this.armor10output.Location = new System.Drawing.Point(319, 173);
             this.armor10output.MaxLength = 8;
             this.armor10output.Name = "armor10output";
+            this.armor10output.ShortcutsEnabled = false;
             this.armor10output.Size = new System.Drawing.Size(90, 21);
             this.armor10output.TabIndex = 98;
             this.armor10output.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.number);
@@ -938,6 +958,7 @@ namespace Haste
             this.armor8output.Location = new System.Drawing.Point(318, 218);
             this.armor8output.MaxLength = 8;
             this.armor8output.Name = "armor8output";
+            this.armor8output.ShortcutsEnabled = false;
             this.armor8output.Size = new System.Drawing.Size(90, 21);
             this.armor8output.TabIndex = 97;
             this.armor8output.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.number);
@@ -947,6 +968,7 @@ namespace Haste
             this.armor6output.Location = new System.Drawing.Point(318, 128);
             this.armor6output.MaxLength = 8;
             this.armor6output.Name = "armor6output";
+            this.armor6output.ShortcutsEnabled = false;
             this.armor6output.Size = new System.Drawing.Size(90, 21);
             this.armor6output.TabIndex = 96;
             this.armor6output.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.number);
@@ -957,6 +979,7 @@ namespace Haste
             this.armor3output.Location = new System.Drawing.Point(318, 38);
             this.armor3output.MaxLength = 8;
             this.armor3output.Name = "armor3output";
+            this.armor3output.ShortcutsEnabled = false;
             this.armor3output.Size = new System.Drawing.Size(90, 21);
             this.armor3output.TabIndex = 95;
             this.armor3output.TabStop = false;
@@ -968,6 +991,7 @@ namespace Haste
             this.alltext.ImeMode = System.Windows.Forms.ImeMode.Disable;
             this.alltext.Location = new System.Drawing.Point(664, 379);
             this.alltext.Name = "alltext";
+            this.alltext.ShortcutsEnabled = false;
             this.alltext.Size = new System.Drawing.Size(100, 26);
             this.alltext.TabIndex = 107;
             this.alltext.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.number);
@@ -1010,12 +1034,89 @@ namespace Haste
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // enchant1
+            // 
+            this.enchant1.AutoSize = true;
+            this.enchant1.Font = new System.Drawing.Font("宋体", 12F);
+            this.enchant1.Location = new System.Drawing.Point(456, 80);
+            this.enchant1.Name = "enchant1";
+            this.enchant1.Size = new System.Drawing.Size(66, 20);
+            this.enchant1.TabIndex = 111;
+            this.enchant1.Text = "附魔1";
+            this.enchant1.UseVisualStyleBackColor = true;
+            // 
+            // enchant2
+            // 
+            this.enchant2.AutoSize = true;
+            this.enchant2.Font = new System.Drawing.Font("宋体", 12F);
+            this.enchant2.Location = new System.Drawing.Point(456, 126);
+            this.enchant2.Name = "enchant2";
+            this.enchant2.Size = new System.Drawing.Size(66, 20);
+            this.enchant2.TabIndex = 112;
+            this.enchant2.Text = "附魔2";
+            this.enchant2.UseVisualStyleBackColor = true;
+            // 
+            // enchant3
+            // 
+            this.enchant3.AutoSize = true;
+            this.enchant3.Font = new System.Drawing.Font("宋体", 12F);
+            this.enchant3.Location = new System.Drawing.Point(456, 172);
+            this.enchant3.Name = "enchant3";
+            this.enchant3.Size = new System.Drawing.Size(66, 20);
+            this.enchant3.TabIndex = 113;
+            this.enchant3.Text = "附魔3";
+            this.enchant3.UseVisualStyleBackColor = true;
+            // 
+            // enchantTextbox1
+            // 
+            this.enchantTextbox1.ImeMode = System.Windows.Forms.ImeMode.Disable;
+            this.enchantTextbox1.Location = new System.Drawing.Point(554, 80);
+            this.enchantTextbox1.MaxLength = 8;
+            this.enchantTextbox1.Name = "enchantTextbox1";
+            this.enchantTextbox1.ShortcutsEnabled = false;
+            this.enchantTextbox1.Size = new System.Drawing.Size(94, 21);
+            this.enchantTextbox1.TabIndex = 114;
+            this.enchantTextbox1.TabStop = false;
+            this.enchantTextbox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.number);
+            // 
+            // enchantTextbox2
+            // 
+            this.enchantTextbox2.ImeMode = System.Windows.Forms.ImeMode.Disable;
+            this.enchantTextbox2.Location = new System.Drawing.Point(554, 126);
+            this.enchantTextbox2.MaxLength = 8;
+            this.enchantTextbox2.Name = "enchantTextbox2";
+            this.enchantTextbox2.ShortcutsEnabled = false;
+            this.enchantTextbox2.Size = new System.Drawing.Size(94, 21);
+            this.enchantTextbox2.TabIndex = 115;
+            this.enchantTextbox2.TabStop = false;
+            this.enchantTextbox2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.number);
+            // 
+            // enchantTextbox3
+            // 
+            this.enchantTextbox3.ImeMode = System.Windows.Forms.ImeMode.Disable;
+            this.enchantTextbox3.Location = new System.Drawing.Point(554, 172);
+            this.enchantTextbox3.MaxLength = 8;
+            this.enchantTextbox3.Name = "enchantTextbox3";
+            this.enchantTextbox3.ShortcutsEnabled = false;
+            this.enchantTextbox3.Size = new System.Drawing.Size(94, 21);
+            this.enchantTextbox3.TabIndex = 116;
+            this.enchantTextbox3.TabStop = false;
+            this.enchantTextbox3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.number);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(928, 655);
+            this.Controls.Add(this.enchantTextbox3);
+            this.Controls.Add(this.enchantTextbox2);
+            this.Controls.Add(this.enchantTextbox1);
+            this.Controls.Add(this.enchant3);
+            this.Controls.Add(this.enchant2);
+            this.Controls.Add(this.enchant1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.allcombo);
             this.Controls.Add(this.button1);
@@ -1039,7 +1140,6 @@ namespace Haste
             this.Controls.Add(this.comboBox13);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.addhaste);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.tohaste);
@@ -1092,6 +1192,8 @@ namespace Haste
             this.Controls.Add(this.comboarmor2);
             this.Controls.Add(this.comboarmor3);
             this.Controls.Add(this.checkBoxArmor3);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = " The Haste";
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.number);
@@ -1153,7 +1255,6 @@ namespace Haste
         private System.Windows.Forms.TextBox tohaste;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox addhaste;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox comboBox13;
@@ -1177,6 +1278,12 @@ namespace Haste
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ComboBox allcombo;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.CheckBox enchant1;
+        private System.Windows.Forms.CheckBox enchant2;
+        private System.Windows.Forms.CheckBox enchant3;
+        private System.Windows.Forms.TextBox enchantTextbox1;
+        private System.Windows.Forms.TextBox enchantTextbox2;
+        private System.Windows.Forms.TextBox enchantTextbox3;
     }
 }
 

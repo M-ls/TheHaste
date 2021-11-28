@@ -35,24 +35,27 @@ namespace Haste
             //input导入各部位加速数值
             string[,] equipValueInput =
             {
-                { armor3output.Text,"1","帽子" },
-                { armor2output.Text,"2","衣服" },
-                { armor6output.Text,"3","腰带" },
-                { armor10output.Text,"4","护腕" },
-                { armor8output.Text,"5","下装" },
-                { armor9output.Text,"6","鞋子" },
-                { trinket4output.Text,"7","项链" },
-                { trinket7output.Text,"8","腰坠" },
-                { trinket51output.Text,"9","戒指1" },
-                { trinket52output.Text,"10","戒指2" },
-                { weapon1output.Text,"11","暗器" },
-                { weapon0output.Text,"12","武器" }
+                { armor3output.Text,"1","帽子",checkBoxArmor3.Checked.ToString() },
+                { armor2output.Text,"2","衣服",checkBoxArmor2.Checked.ToString() },
+                { armor6output.Text,"3","腰带",checkBoxArmor6.Checked.ToString() },
+                { armor10output.Text,"4","护腕",checkBoxArmor10.Checked.ToString() },
+                { armor8output.Text,"5","下装",checkBoxArmor8.Checked.ToString() },
+                { armor9output.Text,"6","鞋子",checkBoxArmor9.Checked.ToString() },
+                { trinket4output.Text,"7","项链",checkBoxTrinket4.Checked.ToString() },
+                { trinket7output.Text,"8","腰坠",checkBoxTrinket7.Checked.ToString() },
+                { trinket51output.Text,"9","戒指1",checkBoxTrinket51.Checked.ToString() },
+                { trinket52output.Text,"10","戒指2",checkBoxTrinket52.Checked.ToString() },
+                { weapon1output.Text,"11","暗器",checkBoxWeapon1.Checked.ToString() },
+                { weapon0output.Text,"12","武器",checkBoxWeapon0.Checked.ToString() },
+                { enchantTextbox1.Text,"13","附魔1",enchant1.Checked.ToString() },
+                { enchantTextbox2.Text,"14","附魔2",enchant2.Checked.ToString() },
+                { enchantTextbox3.Text,"15","附魔3",enchant3.Checked.ToString() }
             };
             //判断数据类型，排除不需要计算的部位，并用output返回装备序号
-            for (int arr = 0; arr< 12; arr++)
+            for (int arr = 0; arr< 15; arr++)
             {
                 string valueTrim = equipValueInput[arr,0];
-                if (!string.IsNullOrEmpty(valueTrim) && decimal.TryParse(valueTrim, out decimal parseResult) && parseResult != 0M)
+                if (equipValueInput[arr,3] == "True" && !string.IsNullOrEmpty(valueTrim) && decimal.TryParse(valueTrim, out decimal parseResult) && parseResult != 0M)
                 {
                     equipValueOutput.Add(equipValueInput[arr,1]);
                     //输出需要规划求解（穷举）的部位
@@ -112,15 +115,17 @@ namespace Haste
                 ui.Add($"溢出{ pass.ElementAt(k)}点，所用部位： { string.Join("，", m)}");
 
             }
-            //输出最终需求，这里需要改，用form2输出而不是messagebox弹框
-            string o = string.Join("\n", ui);
+            //输出最终需求
+            string o = string.Join(Environment.NewLine, ui);
             if (result.Count > 0)
-                MessageBox.Show(o);
+                //MessageBox.Show(o);
+                new Form2(o).ShowDialog();
+                
             else
                 MessageBox.Show("无结果！");
         }
         private void number(object sender, KeyPressEventArgs e)
-        //限制输入数字和退格，属性里限制输入法，IME为disable
+        //限制输入数字和退格，属性里限制输入法，IME为disable,限制右键菜单ShortcutEnabled
         {
             if (!Char.IsNumber(e.KeyChar) && e.KeyChar != (char)8)
             {
@@ -371,50 +376,19 @@ namespace Haste
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            //int sz = alltext.TextLength;
-            //int k = 0;
-            //for (int i = 0; i < sz; i++)
-            //{
-            //    if (char.IsNumber((char)i))
-            //    {
-            //        k++;
-            //        MessageBox.Show(k.ToString());
-            //    }
-            //    else
-            //        continue;
-            //}
-            //判断是否为数字 写错了 暂时注释掉
-            if (alltext.Text == "")
-            //一键设置装分，判断数据类型和是否为空
-            {
-                armor3.Text = "0";
-                armor2.Text = "0";
-                armor6.Text = "0";
-                armor10.Text = "0";
-                armor8.Text = "0";
-                armor9.Text = "0";
-                trinket4.Text = "0";
-                trinket7.Text = "0";
-                trinket51.Text = "0";
-                trinket52.Text = "0";
-                weapon1.Text = "0";
-                weapon0.Text = "0";
-            }
-            else
-            {
-                armor3.Text = alltext.Text;
-                armor2.Text = alltext.Text;
-                armor6.Text = alltext.Text;
-                armor10.Text = alltext.Text;
-                armor8.Text = alltext.Text;
-                armor9.Text = alltext.Text;
-                trinket4.Text = alltext.Text;
-                trinket7.Text = alltext.Text;
-                trinket51.Text = alltext.Text;
-                trinket52.Text = alltext.Text;
-                weapon1.Text = alltext.Text;
-                weapon0.Text = alltext.Text;
-            }
+
+            armor3.Text = alltext.Text;
+            armor2.Text = alltext.Text;
+            armor6.Text = alltext.Text;
+            armor10.Text = alltext.Text;
+            armor8.Text = alltext.Text;
+            armor9.Text = alltext.Text;
+            trinket4.Text = alltext.Text;
+            trinket7.Text = alltext.Text;
+            trinket51.Text = alltext.Text;
+            trinket52.Text = alltext.Text;
+            weapon1.Text = alltext.Text;
+            weapon0.Text = alltext.Text;
         }
         private void button2_Click(object sender, EventArgs e)
         {
