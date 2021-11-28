@@ -35,22 +35,21 @@ namespace Haste
             //input导入各部位加速数值
             string[,] equipValueInput =
             {
-                { armor3output.Text,"1" },
-                { armor2output.Text,"2" },
-                { armor6output.Text,"3" },
-                { armor10output.Text,"4" },
-                { armor8output.Text,"5" },
-                { armor9output.Text,"6" },
-                { trinket4output.Text,"7" },
-                { trinket7output.Text,"8" },
-                { trinket51output.Text,"9" },
-                { trinket52output.Text,"10" },
-                { weapon1output.Text,"11" },
-                { weapon0output.Text,"12" }
+                { armor3output.Text,"1","帽子" },
+                { armor2output.Text,"2","衣服" },
+                { armor6output.Text,"3","腰带" },
+                { armor10output.Text,"4","护腕" },
+                { armor8output.Text,"5","下装" },
+                { armor9output.Text,"6","鞋子" },
+                { trinket4output.Text,"7","项链" },
+                { trinket7output.Text,"8","腰坠" },
+                { trinket51output.Text,"9","戒指1" },
+                { trinket52output.Text,"10","戒指2" },
+                { weapon1output.Text,"11","暗器" },
+                { weapon0output.Text,"12","武器" }
             };
-            //判断数据类型
+            //判断数据类型，排除不需要计算的部位，并用output返回装备序号
             for (int arr = 0; arr< 12; arr++)
-            //不是很懂为什么要写12，但是11会出错
             {
                 string valueTrim = equipValueInput[arr,0];
                 if (!string.IsNullOrEmpty(valueTrim) && decimal.TryParse(valueTrim, out decimal parseResult) && parseResult != 0M)
@@ -59,9 +58,7 @@ namespace Haste
                     //输出需要规划求解（穷举）的部位
                 }
             }
-            //显示需要规划求解的部位 测试用 这行记得删
-            MessageBox.Show(string.Join(",", equipValueOutput));
-            //穷举计算 根据equipValueOutput这个list来计算
+            //穷举计算 根据equipValueOutput这个list来计算 这里组合不是实际值是唯一标识
             List<decimal[]> list = new List<decimal[]>();
             foreach (string s in equipValueOutput)
             {
@@ -73,8 +70,9 @@ namespace Haste
                     list.Add(ss.Concat(nArr).ToArray());
                 }
             }
-            //输出下标的组合
+            //输出满足加速范围的list下标及溢出值，一一对应
             List<decimal> result = new List<decimal>();
+            List<decimal> pass = new List<decimal>();
             for (int j = 0; j <list.Count; j++)
             {
                 //列出list的下标循环
@@ -87,12 +85,39 @@ namespace Haste
                 }
                 //sum为所需求和的各个实际数值
                 decimal sums = sum.Sum();
-                if (sums >= decimal.Parse(tohaste.Text) && sums <= decimal.Parse(tohaste.Text)+decimal.Parse(addhaste.Text))
-                    result.Add(j);
-            }
-            //将list的下标转换为能看懂的东西
+                try
+                {
+                    if (sums >= decimal.Parse(tohaste.Text) && sums <= (decimal.Parse(tohaste.Text) + decimal.Parse(addhaste.Text)))
+                    {
+                        result.Add(j);
+                        pass.Add(sums - decimal.Parse(tohaste.Text));
+                    }
+                }
+                catch
+                {
 
-            //List<decimal> sums = sum.Select(x => x.Sum()).ToList();
+                }
+            }
+            //将list的下标转换为部件名字
+            List<string> ui = new List<string>();
+            for (int k = 0; k < result.Count; k++) 
+            {
+                //result下标转result值，即list下标 list下标转部件名字 顺手把溢出值捎上
+                decimal[] downs = list.ElementAt((int)result.ElementAt(k));
+                List<string> m = new List<string>();
+                foreach (decimal s in downs)
+                {
+                    m.Add(equipValueInput[(int)(s - 1), 2]);
+                }
+                ui.Add($"溢出{ pass.ElementAt(k)}点，所用部位： { string.Join("，", m)}");
+
+            }
+            //输出最终需求，这里需要改，用form2输出而不是messagebox弹框
+            string o = string.Join("\n", ui);
+            if (result.Count > 0)
+                MessageBox.Show(o);
+            else
+                MessageBox.Show("无结果！");
         }
         private void number(object sender, KeyPressEventArgs e)
         //限制输入数字和退格，属性里限制输入法，IME为disable
