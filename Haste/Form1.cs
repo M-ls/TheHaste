@@ -31,30 +31,31 @@ namespace Haste
         public void gethaste(Object sender, EventArgs e)
         {
             //创建所需计算的list，预先排除非勾选项
-            List<decimal> equipValueOutput = new List<decimal>();
+            List<string> equipValueOutput = new List<string>();
             //input导入各部位加速数值
-            string[] equipValueInput =
+            string[,] equipValueInput =
             {
-                armor3output.Text,
-                armor2output.Text,
-                armor6output.Text,
-                armor10output.Text,
-                armor8output.Text,
-                armor9output.Text,
-                trinket4output.Text,
-                trinket7output.Text,
-                trinket51output.Text,
-                trinket52output.Text,
-                weapon1output.Text,
-                weapon0output.Text
+                { armor3output.Text,"1" },
+                { armor2output.Text,"2" },
+                { armor6output.Text,"3" },
+                { armor10output.Text,"4" },
+                { armor8output.Text,"5" },
+                { armor9output.Text,"6" },
+                { trinket4output.Text,"7" },
+                { trinket7output.Text,"8" },
+                { trinket51output.Text,"9" },
+                { trinket52output.Text,"10" },
+                { weapon1output.Text,"11" },
+                { weapon0output.Text,"12" }
             };
             //判断数据类型
-            foreach (string value in equipValueInput)
+            for (int arr = 0; arr< 12; arr++)
+            //不是很懂为什么要写12，但是11会出错
             {
-                string valueTrim = value.Trim();
+                string valueTrim = equipValueInput[arr,0];
                 if (!string.IsNullOrEmpty(valueTrim) && decimal.TryParse(valueTrim, out decimal parseResult) && parseResult != 0M)
                 {
-                    equipValueOutput.Add(parseResult);
+                    equipValueOutput.Add(equipValueInput[arr,1]);
                     //输出需要规划求解（穷举）的部位
                 }
             }
@@ -62,26 +63,36 @@ namespace Haste
             MessageBox.Show(string.Join(",", equipValueOutput));
             //穷举计算 根据equipValueOutput这个list来计算
             List<decimal[]> list = new List<decimal[]>();
-            foreach (decimal s in equipValueOutput)
+            foreach (string s in equipValueOutput)
             {
                 List<decimal[]> lst = list.GetRange(0, list.Count);
-                decimal[] nArr = { s };
+                decimal[] nArr = { decimal.Parse(s) };
                 list.Add(nArr);
                 foreach (decimal[] ss in lst)
                 {
                     list.Add(ss.Concat(nArr).ToArray());
                 }
-                
             }
-            List<decimal> sums = list.Select(x => x.Sum()).ToList();
-            List<decimal> i = new List<decimal>();
-            foreach (decimal sum in sums)
-            { 
-                if(sum >= decimal.Parse(tohaste.Text) && sum <= decimal.Parse(tohaste.Text)+decimal.Parse(addhaste.Text))
-                    i.Add(sum);
-                //i为满足条件的list 但此段无法返回对应装备 需重构 存档
+            //输出下标的组合
+            List<decimal> result = new List<decimal>();
+            for (int j = 0; j <list.Count; j++)
+            {
+                //列出list的下标循环
+                decimal[] down = list.ElementAt(j);
+                List<decimal> sum = new List<decimal>();
+                //把装备部位标记转化为对应部位数值并求和
+                foreach (decimal s in down)
+                {
+                    sum.Add(decimal.Parse(equipValueInput[(int)(s - 1m), 0]));
+                }
+                //sum为所需求和的各个实际数值
+                decimal sums = sum.Sum();
+                if (sums >= decimal.Parse(tohaste.Text) && sums <= decimal.Parse(tohaste.Text)+decimal.Parse(addhaste.Text))
+                    result.Add(j);
             }
-            //12位 每一位表示一个装备栏01 11 11 10 11 10
+            //将list的下标转换为能看懂的东西
+
+            //List<decimal> sums = sum.Select(x => x.Sum()).ToList();
         }
         private void number(object sender, KeyPressEventArgs e)
         //限制输入数字和退格，属性里限制输入法，IME为disable
