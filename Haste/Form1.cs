@@ -49,19 +49,22 @@ namespace Haste
                 { weapon0output.Text,"12","武器",checkBoxWeapon0.Checked.ToString() },
                 { enchantTextbox1.Text,"13","附魔1",enchant1.Checked.ToString() },
                 { enchantTextbox2.Text,"14","附魔2",enchant2.Checked.ToString() },
-                { enchantTextbox3.Text,"15","附魔3",enchant3.Checked.ToString() }
+                { enchantTextbox3.Text,"15","附魔3",enchant3.Checked.ToString() },
+                { medicine.Text,"16","增强药品",checkboxMedicine.Checked.ToString() },
+                { food.Text,"17","增强食品",checkBoxFood.Checked.ToString() },
+                { wine.Text,"18","家园藏酒",checkBoxWine.Checked.ToString() }
             };
             //判断数据类型，排除不需要计算的部位，并用output返回装备序号
-            for (int arr = 0; arr< 15; arr++)
+            for (int arr = 0; arr < equipValueInput.GetLength(0); arr++)
             {
-                string valueTrim = equipValueInput[arr,0];
-                if (equipValueInput[arr,3] == "True" && !string.IsNullOrEmpty(valueTrim) && decimal.TryParse(valueTrim, out decimal parseResult) && parseResult != 0M)
+                string valueTrim = equipValueInput[arr, 0];
+                if (equipValueInput[arr, 3] == "True" && !string.IsNullOrEmpty(valueTrim) && decimal.TryParse(valueTrim, out decimal parseResult) && parseResult != 0M)
                 {
-                    equipValueOutput.Add(equipValueInput[arr,1]);
+                    equipValueOutput.Add(equipValueInput[arr, 1]);
                     //输出需要规划求解（穷举）的部位
                 }
             }
-            //穷举计算 根据equipValueOutput这个list来计算 这里组合不是实际值是唯一标识
+            //穷举计算 根据equipValueOutput这个list来计算 这里组合不是实际值是唯一标识 list为组合的list 在最后需要将list转换为原始部位
             List<decimal[]> list = new List<decimal[]>();
             foreach (string s in equipValueOutput)
             {
@@ -74,9 +77,9 @@ namespace Haste
                 }
             }
             //输出满足加速范围的list下标及溢出值，一一对应
-            List<decimal> result = new List<decimal>();
-            List<decimal> pass = new List<decimal>();
-            for (int j = 0; j <list.Count; j++)
+            List<decimal> result = new List<decimal>(); //list的下标
+            List<decimal> pass = new List<decimal>(); //溢出值
+            for (int j = 0; j < list.Count; j++)
             {
                 //列出list的下标循环
                 decimal[] down = list.ElementAt(j);
@@ -101,18 +104,29 @@ namespace Haste
 
                 }
             }
+            //重建数组,排序
+            List<decimal> newpass = new List<decimal>();
+            List<decimal> newresult = new List<decimal>();
+            for(int j = 0; j < pass.Count; j++)
+            {
+                int i = pass.IndexOf(pass.Min());
+                newpass.Add(pass.ElementAt(i));
+                pass.RemoveAt(i);
+                newresult.Add(result.ElementAt(i));
+                result.RemoveAt(i);
+            }
             //将list的下标转换为部件名字
             List<string> ui = new List<string>();
-            for (int k = 0; k < result.Count; k++) 
+            for (int k = 0; k < newresult.Count; k++)
             {
                 //result下标转result值，即list下标 list下标转部件名字 顺手把溢出值捎上
-                decimal[] downs = list.ElementAt((int)result.ElementAt(k));
+                decimal[] downs = list.ElementAt((int)newresult.ElementAt(k));
                 List<string> m = new List<string>();
                 foreach (decimal s in downs)
                 {
                     m.Add(equipValueInput[(int)(s - 1), 2]);
                 }
-                ui.Add($"溢出{ pass.ElementAt(k)}点，所用部位： { string.Join("，", m)}");
+                ui.Add($"溢出{ newpass.ElementAt(k)}点，所用部位： { string.Join("，", m)}");
 
             }
             //输出最终需求
@@ -120,7 +134,7 @@ namespace Haste
             if (result.Count > 0)
                 //MessageBox.Show(o);
                 new Form2(o).ShowDialog();
-                
+
             else
                 MessageBox.Show("无结果！");
         }

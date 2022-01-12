@@ -82,13 +82,7 @@ namespace Haste
             this.tohaste = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.addhaste = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.comboBox13 = new System.Windows.Forms.ComboBox();
-            this.comboBox14 = new System.Windows.Forms.ComboBox();
             this.runit = new System.Windows.Forms.Button();
-            this.comboBox15 = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.armor2output = new System.Windows.Forms.TextBox();
             this.weapon1output = new System.Windows.Forms.TextBox();
             this.weapon0output = new System.Windows.Forms.TextBox();
@@ -111,6 +105,12 @@ namespace Haste
             this.enchantTextbox1 = new System.Windows.Forms.TextBox();
             this.enchantTextbox2 = new System.Windows.Forms.TextBox();
             this.enchantTextbox3 = new System.Windows.Forms.TextBox();
+            this.wine = new System.Windows.Forms.TextBox();
+            this.food = new System.Windows.Forms.TextBox();
+            this.medicine = new System.Windows.Forms.TextBox();
+            this.checkboxMedicine = new System.Windows.Forms.CheckBox();
+            this.checkBoxFood = new System.Windows.Forms.CheckBox();
+            this.checkBoxWine = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // checkBoxArmor3
@@ -316,7 +316,9 @@ namespace Haste
             "3级",
             "4级",
             "5级",
-            "6级"});
+            "6级",
+            "7级",
+            "8级"});
             this.comboweapon0.Location = new System.Drawing.Point(195, 534);
             this.comboweapon0.Name = "comboweapon0";
             this.comboweapon0.Size = new System.Drawing.Size(102, 20);
@@ -796,44 +798,6 @@ namespace Haste
             this.addhaste.TabIndex = 86;
             this.addhaste.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.number);
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label5.Location = new System.Drawing.Point(434, 333);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(71, 16);
-            this.label5.TabIndex = 88;
-            this.label5.Text = "增强药品";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label6.Location = new System.Drawing.Point(434, 365);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(71, 16);
-            this.label6.TabIndex = 89;
-            this.label6.Text = "增强食品";
-            // 
-            // comboBox13
-            // 
-            this.comboBox13.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox13.FormattingEnabled = true;
-            this.comboBox13.Location = new System.Drawing.Point(532, 333);
-            this.comboBox13.Name = "comboBox13";
-            this.comboBox13.Size = new System.Drawing.Size(102, 20);
-            this.comboBox13.TabIndex = 90;
-            // 
-            // comboBox14
-            // 
-            this.comboBox14.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox14.FormattingEnabled = true;
-            this.comboBox14.Location = new System.Drawing.Point(532, 365);
-            this.comboBox14.Name = "comboBox14";
-            this.comboBox14.Size = new System.Drawing.Size(102, 20);
-            this.comboBox14.TabIndex = 91;
-            // 
             // runit
             // 
             this.runit.Location = new System.Drawing.Point(700, 446);
@@ -843,25 +807,6 @@ namespace Haste
             this.runit.Text = "计算";
             this.runit.UseVisualStyleBackColor = true;
             this.runit.Click += new System.EventHandler(this.gethaste);
-            // 
-            // comboBox15
-            // 
-            this.comboBox15.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox15.FormattingEnabled = true;
-            this.comboBox15.Location = new System.Drawing.Point(532, 397);
-            this.comboBox15.Name = "comboBox15";
-            this.comboBox15.Size = new System.Drawing.Size(102, 20);
-            this.comboBox15.TabIndex = 94;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label7.Location = new System.Drawing.Point(434, 397);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(71, 16);
-            this.label7.TabIndex = 93;
-            this.label7.Text = "家园藏酒";
             // 
             // armor2output
             // 
@@ -989,7 +934,7 @@ namespace Haste
             // 
             this.alltext.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.alltext.ImeMode = System.Windows.Forms.ImeMode.Disable;
-            this.alltext.Location = new System.Drawing.Point(664, 379);
+            this.alltext.Location = new System.Drawing.Point(586, 383);
             this.alltext.Name = "alltext";
             this.alltext.ShortcutsEnabled = false;
             this.alltext.Size = new System.Drawing.Size(100, 26);
@@ -998,7 +943,7 @@ namespace Haste
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(778, 374);
+            this.button1.Location = new System.Drawing.Point(700, 378);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(128, 36);
             this.button1.TabIndex = 108;
@@ -1018,7 +963,7 @@ namespace Haste
             "4级",
             "5级",
             "6级"});
-            this.allcombo.Location = new System.Drawing.Point(664, 338);
+            this.allcombo.Location = new System.Drawing.Point(586, 342);
             this.allcombo.Name = "allcombo";
             this.allcombo.Size = new System.Drawing.Size(100, 20);
             this.allcombo.TabIndex = 109;
@@ -1026,7 +971,7 @@ namespace Haste
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(778, 330);
+            this.button2.Location = new System.Drawing.Point(700, 334);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(128, 36);
             this.button2.TabIndex = 110;
@@ -1049,7 +994,7 @@ namespace Haste
             // 
             this.enchant2.AutoSize = true;
             this.enchant2.Font = new System.Drawing.Font("宋体", 12F);
-            this.enchant2.Location = new System.Drawing.Point(456, 126);
+            this.enchant2.Location = new System.Drawing.Point(456, 119);
             this.enchant2.Name = "enchant2";
             this.enchant2.Size = new System.Drawing.Size(66, 20);
             this.enchant2.TabIndex = 112;
@@ -1060,7 +1005,7 @@ namespace Haste
             // 
             this.enchant3.AutoSize = true;
             this.enchant3.Font = new System.Drawing.Font("宋体", 12F);
-            this.enchant3.Location = new System.Drawing.Point(456, 172);
+            this.enchant3.Location = new System.Drawing.Point(456, 158);
             this.enchant3.Name = "enchant3";
             this.enchant3.Size = new System.Drawing.Size(66, 20);
             this.enchant3.TabIndex = 113;
@@ -1070,11 +1015,11 @@ namespace Haste
             // enchantTextbox1
             // 
             this.enchantTextbox1.ImeMode = System.Windows.Forms.ImeMode.Disable;
-            this.enchantTextbox1.Location = new System.Drawing.Point(554, 80);
+            this.enchantTextbox1.Location = new System.Drawing.Point(560, 80);
             this.enchantTextbox1.MaxLength = 8;
             this.enchantTextbox1.Name = "enchantTextbox1";
             this.enchantTextbox1.ShortcutsEnabled = false;
-            this.enchantTextbox1.Size = new System.Drawing.Size(94, 21);
+            this.enchantTextbox1.Size = new System.Drawing.Size(102, 21);
             this.enchantTextbox1.TabIndex = 114;
             this.enchantTextbox1.TabStop = false;
             this.enchantTextbox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.number);
@@ -1082,11 +1027,11 @@ namespace Haste
             // enchantTextbox2
             // 
             this.enchantTextbox2.ImeMode = System.Windows.Forms.ImeMode.Disable;
-            this.enchantTextbox2.Location = new System.Drawing.Point(554, 126);
+            this.enchantTextbox2.Location = new System.Drawing.Point(560, 119);
             this.enchantTextbox2.MaxLength = 8;
             this.enchantTextbox2.Name = "enchantTextbox2";
             this.enchantTextbox2.ShortcutsEnabled = false;
-            this.enchantTextbox2.Size = new System.Drawing.Size(94, 21);
+            this.enchantTextbox2.Size = new System.Drawing.Size(102, 21);
             this.enchantTextbox2.TabIndex = 115;
             this.enchantTextbox2.TabStop = false;
             this.enchantTextbox2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.number);
@@ -1094,14 +1039,83 @@ namespace Haste
             // enchantTextbox3
             // 
             this.enchantTextbox3.ImeMode = System.Windows.Forms.ImeMode.Disable;
-            this.enchantTextbox3.Location = new System.Drawing.Point(554, 172);
+            this.enchantTextbox3.Location = new System.Drawing.Point(560, 158);
             this.enchantTextbox3.MaxLength = 8;
             this.enchantTextbox3.Name = "enchantTextbox3";
             this.enchantTextbox3.ShortcutsEnabled = false;
-            this.enchantTextbox3.Size = new System.Drawing.Size(94, 21);
+            this.enchantTextbox3.Size = new System.Drawing.Size(102, 21);
             this.enchantTextbox3.TabIndex = 116;
             this.enchantTextbox3.TabStop = false;
             this.enchantTextbox3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.number);
+            // 
+            // wine
+            // 
+            this.wine.ImeMode = System.Windows.Forms.ImeMode.Disable;
+            this.wine.Location = new System.Drawing.Point(560, 275);
+            this.wine.MaxLength = 8;
+            this.wine.Name = "wine";
+            this.wine.ShortcutsEnabled = false;
+            this.wine.Size = new System.Drawing.Size(102, 21);
+            this.wine.TabIndex = 117;
+            this.wine.TabStop = false;
+            this.wine.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.number);
+            // 
+            // food
+            // 
+            this.food.ImeMode = System.Windows.Forms.ImeMode.Disable;
+            this.food.Location = new System.Drawing.Point(560, 236);
+            this.food.MaxLength = 8;
+            this.food.Name = "food";
+            this.food.ShortcutsEnabled = false;
+            this.food.Size = new System.Drawing.Size(102, 21);
+            this.food.TabIndex = 118;
+            this.food.TabStop = false;
+            this.food.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.number);
+            // 
+            // medicine
+            // 
+            this.medicine.ImeMode = System.Windows.Forms.ImeMode.Disable;
+            this.medicine.Location = new System.Drawing.Point(560, 197);
+            this.medicine.MaxLength = 8;
+            this.medicine.Name = "medicine";
+            this.medicine.ShortcutsEnabled = false;
+            this.medicine.Size = new System.Drawing.Size(102, 21);
+            this.medicine.TabIndex = 119;
+            this.medicine.TabStop = false;
+            this.medicine.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.number);
+            // 
+            // checkboxMedicine
+            // 
+            this.checkboxMedicine.AutoSize = true;
+            this.checkboxMedicine.Font = new System.Drawing.Font("宋体", 12F);
+            this.checkboxMedicine.Location = new System.Drawing.Point(456, 197);
+            this.checkboxMedicine.Name = "checkboxMedicine";
+            this.checkboxMedicine.Size = new System.Drawing.Size(90, 20);
+            this.checkboxMedicine.TabIndex = 120;
+            this.checkboxMedicine.Text = "增强药品";
+            this.checkboxMedicine.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxFood
+            // 
+            this.checkBoxFood.AutoSize = true;
+            this.checkBoxFood.Font = new System.Drawing.Font("宋体", 12F);
+            this.checkBoxFood.Location = new System.Drawing.Point(456, 236);
+            this.checkBoxFood.Name = "checkBoxFood";
+            this.checkBoxFood.Size = new System.Drawing.Size(90, 20);
+            this.checkBoxFood.TabIndex = 121;
+            this.checkBoxFood.Text = "增强食品";
+            this.checkBoxFood.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxWine
+            // 
+            this.checkBoxWine.AutoSize = true;
+            this.checkBoxWine.Font = new System.Drawing.Font("宋体", 12F);
+            this.checkBoxWine.Location = new System.Drawing.Point(456, 275);
+            this.checkBoxWine.Name = "checkBoxWine";
+            this.checkBoxWine.Size = new System.Drawing.Size(90, 20);
+            this.checkBoxWine.TabIndex = 122;
+            this.checkBoxWine.Text = "家园藏酒";
+            this.checkBoxWine.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -1111,6 +1125,9 @@ namespace Haste
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(928, 655);
+            this.Controls.Add(this.checkBoxWine);
+            this.Controls.Add(this.checkboxMedicine);
+            this.Controls.Add(this.wine);
             this.Controls.Add(this.enchantTextbox3);
             this.Controls.Add(this.enchantTextbox2);
             this.Controls.Add(this.enchantTextbox1);
@@ -1133,13 +1150,7 @@ namespace Haste
             this.Controls.Add(this.armor8output);
             this.Controls.Add(this.armor6output);
             this.Controls.Add(this.armor3output);
-            this.Controls.Add(this.comboBox15);
-            this.Controls.Add(this.label7);
             this.Controls.Add(this.runit);
-            this.Controls.Add(this.comboBox14);
-            this.Controls.Add(this.comboBox13);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.addhaste);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.tohaste);
@@ -1192,10 +1203,14 @@ namespace Haste
             this.Controls.Add(this.comboarmor2);
             this.Controls.Add(this.comboarmor3);
             this.Controls.Add(this.checkBoxArmor3);
+            this.Controls.Add(this.food);
+            this.Controls.Add(this.medicine);
+            this.Controls.Add(this.checkBoxFood);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Form1";
-            this.Text = " The Haste";
+            this.Text = " The Haste  Ver1.0";
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.number);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -1255,13 +1270,7 @@ namespace Haste
         private System.Windows.Forms.TextBox tohaste;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox addhaste;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox comboBox13;
-        private System.Windows.Forms.ComboBox comboBox14;
         private System.Windows.Forms.Button runit;
-        private System.Windows.Forms.ComboBox comboBox15;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox armor2output;
         private System.Windows.Forms.TextBox weapon1output;
         private System.Windows.Forms.TextBox weapon0output;
@@ -1284,6 +1293,12 @@ namespace Haste
         private System.Windows.Forms.TextBox enchantTextbox1;
         private System.Windows.Forms.TextBox enchantTextbox2;
         private System.Windows.Forms.TextBox enchantTextbox3;
+        private System.Windows.Forms.TextBox wine;
+        private System.Windows.Forms.TextBox food;
+        private System.Windows.Forms.TextBox medicine;
+        private System.Windows.Forms.CheckBox checkboxMedicine;
+        private System.Windows.Forms.CheckBox checkBoxFood;
+        private System.Windows.Forms.CheckBox checkBoxWine;
     }
 }
 
