@@ -102,15 +102,15 @@ namespace Haste
             this.enchant1 = new System.Windows.Forms.CheckBox();
             this.enchant2 = new System.Windows.Forms.CheckBox();
             this.enchant3 = new System.Windows.Forms.CheckBox();
-            this.enchantTextbox1 = new System.Windows.Forms.TextBox();
-            this.enchantTextbox2 = new System.Windows.Forms.TextBox();
-            this.enchantTextbox3 = new System.Windows.Forms.TextBox();
             this.wine = new System.Windows.Forms.TextBox();
             this.food = new System.Windows.Forms.TextBox();
             this.medicine = new System.Windows.Forms.TextBox();
             this.checkboxMedicine = new System.Windows.Forms.CheckBox();
             this.checkBoxFood = new System.Windows.Forms.CheckBox();
             this.checkBoxWine = new System.Windows.Forms.CheckBox();
+            this.enchantTextbox1 = new System.Windows.Forms.ComboBox();
+            this.enchantTextbox2 = new System.Windows.Forms.ComboBox();
+            this.enchantTextbox3 = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // checkBoxArmor3
@@ -1012,42 +1012,6 @@ namespace Haste
             this.enchant3.Text = "附魔3";
             this.enchant3.UseVisualStyleBackColor = true;
             // 
-            // enchantTextbox1
-            // 
-            this.enchantTextbox1.ImeMode = System.Windows.Forms.ImeMode.Disable;
-            this.enchantTextbox1.Location = new System.Drawing.Point(560, 80);
-            this.enchantTextbox1.MaxLength = 8;
-            this.enchantTextbox1.Name = "enchantTextbox1";
-            this.enchantTextbox1.ShortcutsEnabled = false;
-            this.enchantTextbox1.Size = new System.Drawing.Size(102, 21);
-            this.enchantTextbox1.TabIndex = 114;
-            this.enchantTextbox1.TabStop = false;
-            this.enchantTextbox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.number);
-            // 
-            // enchantTextbox2
-            // 
-            this.enchantTextbox2.ImeMode = System.Windows.Forms.ImeMode.Disable;
-            this.enchantTextbox2.Location = new System.Drawing.Point(560, 119);
-            this.enchantTextbox2.MaxLength = 8;
-            this.enchantTextbox2.Name = "enchantTextbox2";
-            this.enchantTextbox2.ShortcutsEnabled = false;
-            this.enchantTextbox2.Size = new System.Drawing.Size(102, 21);
-            this.enchantTextbox2.TabIndex = 115;
-            this.enchantTextbox2.TabStop = false;
-            this.enchantTextbox2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.number);
-            // 
-            // enchantTextbox3
-            // 
-            this.enchantTextbox3.ImeMode = System.Windows.Forms.ImeMode.Disable;
-            this.enchantTextbox3.Location = new System.Drawing.Point(560, 158);
-            this.enchantTextbox3.MaxLength = 8;
-            this.enchantTextbox3.Name = "enchantTextbox3";
-            this.enchantTextbox3.ShortcutsEnabled = false;
-            this.enchantTextbox3.Size = new System.Drawing.Size(102, 21);
-            this.enchantTextbox3.TabIndex = 116;
-            this.enchantTextbox3.TabStop = false;
-            this.enchantTextbox3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.number);
-            // 
             // wine
             // 
             this.wine.ImeMode = System.Windows.Forms.ImeMode.Disable;
@@ -1117,6 +1081,32 @@ namespace Haste
             this.checkBoxWine.Text = "家园藏酒";
             this.checkBoxWine.UseVisualStyleBackColor = true;
             // 
+            // enchantTextbox1
+            // 
+            this.enchantTextbox1.FormattingEnabled = true;
+            this.enchantTextbox1.Location = new System.Drawing.Point(560, 80);
+            this.enchantTextbox1.Name = "enchantTextbox1";
+            this.enchantTextbox1.Size = new System.Drawing.Size(102, 20);
+            this.enchantTextbox1.TabIndex = 123;
+            // 
+            // enchantTextbox2
+            // 
+            this.enchantTextbox2.FormattingEnabled = true;
+            this.enchantTextbox2.Location = new System.Drawing.Point(560, 120);
+            this.enchantTextbox2.Name = "enchantTextbox2";
+            this.enchantTextbox2.Size = new System.Drawing.Size(102, 20);
+            this.enchantTextbox2.TabIndex = 124;
+            this.enchantTextbox2.TabStop = false;
+            // 
+            // enchantTextbox3
+            // 
+            this.enchantTextbox3.FormattingEnabled = true;
+            this.enchantTextbox3.Location = new System.Drawing.Point(560, 158);
+            this.enchantTextbox3.Name = "enchantTextbox3";
+            this.enchantTextbox3.Size = new System.Drawing.Size(102, 20);
+            this.enchantTextbox3.TabIndex = 125;
+            this.enchantTextbox3.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1128,9 +1118,6 @@ namespace Haste
             this.Controls.Add(this.checkBoxWine);
             this.Controls.Add(this.checkboxMedicine);
             this.Controls.Add(this.wine);
-            this.Controls.Add(this.enchantTextbox3);
-            this.Controls.Add(this.enchantTextbox2);
-            this.Controls.Add(this.enchantTextbox1);
             this.Controls.Add(this.enchant3);
             this.Controls.Add(this.enchant2);
             this.Controls.Add(this.enchant1);
@@ -1206,11 +1193,14 @@ namespace Haste
             this.Controls.Add(this.food);
             this.Controls.Add(this.medicine);
             this.Controls.Add(this.checkBoxFood);
+            this.Controls.Add(this.enchantTextbox2);
+            this.Controls.Add(this.enchantTextbox1);
+            this.Controls.Add(this.enchantTextbox3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Form1";
-            this.Text = " The Haste  Ver1.0";
+            this.Text = " The Haste  Ver1.1";
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.number);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -1290,15 +1280,15 @@ namespace Haste
         private System.Windows.Forms.CheckBox enchant1;
         private System.Windows.Forms.CheckBox enchant2;
         private System.Windows.Forms.CheckBox enchant3;
-        private System.Windows.Forms.TextBox enchantTextbox1;
-        private System.Windows.Forms.TextBox enchantTextbox2;
-        private System.Windows.Forms.TextBox enchantTextbox3;
         private System.Windows.Forms.TextBox wine;
         private System.Windows.Forms.TextBox food;
         private System.Windows.Forms.TextBox medicine;
         private System.Windows.Forms.CheckBox checkboxMedicine;
         private System.Windows.Forms.CheckBox checkBoxFood;
         private System.Windows.Forms.CheckBox checkBoxWine;
+        private System.Windows.Forms.ComboBox enchantTextbox1;
+        private System.Windows.Forms.ComboBox enchantTextbox2;
+        private System.Windows.Forms.ComboBox enchantTextbox3;
     }
 }
 
